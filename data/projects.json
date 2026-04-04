@@ -1,0 +1,76 @@
+[
+  {
+    "id": "ragforge",
+    "title": "RAGForge",
+    "description": "A professional Retrieval-Augmented Generation (RAG) system built with Streamlit, FAISS, and Ollama — no cloud, no data leaks. Fully Local. Fully Private.",
+    "tech": ["Python", "Streamlit", "FAISS", "Ollama"],
+    "stack": "AI / ML",
+    "status": "live",
+    "type": "Full Stack AI",
+    "liveUrl": "https://github.com/RAGForge",
+    "image": "/projects/ragforge.png",
+    "icon": "bot"
+  },
+  {
+    "id": "drivegate",
+    "title": "DriveGate",
+    "description": "The One-Way Entrance to Your Private Cloud. Upload files to your Google Drive from any device using just a 6-digit code from your authenticator app.",
+    "tech": ["React", "Node.js", "Google API", "Auth"],
+    "stack": "Full Stack",
+    "status": "live",
+    "type": "Web App",
+    "liveUrl": "https://github.com/DriveGate",
+    "image": "/projects/drivegate.png",
+    "icon": "cloud"
+  },
+  {
+    "id": "nullprotocol",
+    "title": "NullProtocol",
+    "description": "Advanced reconnaissance and attack pipeline automator. Seamlessly integrate Nmap, Hydra, and Metasploit into a single, deadly workflow.",
+    "tech": ["Python", "Nmap", "Bash", "Security"],
+    "stack": "Python",
+    "status": "live",
+    "type": "CLI Tool",
+    "liveUrl": "https://github.com/NullProtocol",
+    "image": "/projects/nullprotocol.png",
+    "icon": "shield"
+  },
+  {
+    "id": "cybersec-vault",
+    "title": "CyberSec Vault",
+    "description": "Enterprise-grade digital safe for sensitive project credentials. Featuring AES-256 encryption, multi-factor authentication loops, and secure key derivation.",
+    "tech": ["Python", "Cryptography", "SQLite", "Security"],
+    "stack": "Python",
+    "status": "completed",
+    "type": "Security Tool",
+    "icon": "shield"
+  },
+
+  { "id": "aiml1", "title": "Facial Recognition Attendance System", "description": "Automated student attendance tracking using OpenCV and the face_recognition library with an SQLite database integration.", "tech": ["Python", "OpenCV", "SQLite"], "stack": "AI / ML", "status": "completed", "type": "Desktop GUI", "icon": "camera" },
+  { "id": "aiml2", "title": "Stock Market Predictor", "description": "Predicts future stock prices using historical data and LSTM neural networks. Includes advanced data visualization.", "tech": ["Python", "TensorFlow", "Pandas"], "stack": "AI / ML", "status": "completed", "type": "Data Science", "icon": "chart" },
+  { "id": "aiml3", "title": "Medical Imaging CNN", "description": "A convolutional neural network categorizing chest X-Rays for pneumonia identification with 95% accuracy.", "tech": ["Python", "PyTorch", "NumPy"], "stack": "AI / ML", "status": "completed", "type": "Machine Learning", "icon": "hospital" },
+  
+  { "id": "bc1", "title": "Decentralized NFT Marketplace", "description": "Web3 application allowing users to mint, buy, and sell non-fungible tokens securely on the Ethereum network.", "tech": ["Solidity", "React", "Web3.js", "Hardhat"], "stack": "Blockchain", "status": "completed", "type": "Web3 DApp", "icon": "globe" },
+  { "id": "bc2", "title": "Defi Staking Platform", "description": "Smart contract system where users deposit tokens to earn yield over time. Fully audited algorithms.", "tech": ["Solidity", "Ethers.js", "Truffle"], "stack": "Blockchain", "status": "completed", "type": "Smart Contract", "icon": "server" },
+  { "id": "bc3", "title": "Custom Cryptocurrency", "description": "An ERC-20 token contract featuring burning, minting roles, and custom governance parameters.", "tech": ["Solidity", "OpenZeppelin"], "stack": "Blockchain", "status": "completed", "type": "Web3 DApp", "icon": "database" },
+  { "id": "bc4", "title": "Blockchain Voting Protocol", "description": "Secure and transparent voting mechanism built purely through immutable ledger smart contracts to prevent fraud.", "tech": ["Solidity", "React", "Wagmi"], "stack": "Blockchain", "status": "completed", "type": "Web3 DApp", "icon": "shield" },
+
+  { "id": "py1", "title": "Discord Music Bot", "description": "A feature-rich discord bot capable of streaming music directly from YouTube and Spotify with priority queue management.", "tech": ["Python", "discord.py", "FFmpeg"], "stack": "Python", "status": "completed", "type": "Bot Application", "icon": "music" },
+  { "id": "py2", "title": "Web Scraper Toolkit", "description": "A high-concurrency web scraping tool utilizing proxies to gather massive datasets and output them to clean CSVs.", "tech": ["Python", "BeautifulSoup", "Selenium"], "stack": "Python", "status": "completed", "type": "CLI Tool", "icon": "code" },
+  { "id": "py3", "title": "Automated Email Campaigner", "description": "A script that intelligently customizes and sends bulk emails via SMTP based on segmented recipient data.", "tech": ["Python", "smtplib", "Pandas"], "stack": "Python", "status": "completed", "type": "Automation", "icon": "message" },
+
+  { "id": "cpp1", "title": "Library Management System", "description": "A comprehensive console-based application for managing book inventories, student borrowing rules, and late fees.", "tech": ["C++", "File Handling", "OOP"], "stack": "C++", "status": "completed", "type": "CLI App", "icon": "book" },
+  { "id": "cpp2", "title": "Custom Raytracer", "description": "A 3D rendering engine built completely from scratch implementing ray tracing algorithms for realistic lighting and shadows.", "tech": ["C++", "Math", "Computer Graphics"], "stack": "C++", "status": "completed", "type": "Engine", "icon": "cube" },
+  { "id": "cpp3", "title": "Banking Record System", "description": "Terminal-based banking application supporting account creation, deposits, withdrawals, and persistent storage via binary files.", "tech": ["C++", "Binary I/O", "Data Structures"], "stack": "C++", "status": "completed", "type": "CLI App", "icon": "database" },
+  { "id": "cpp4", "title": "Pathfinding Visualizer", "description": "A graphical C++ tool visualizing how A* and Dijkstra's algorithms actively find the shortest path between nodes.", "tech": ["C++", "SFML", "Algorithms"], "stack": "C++", "status": "completed", "type": "Desktop GUI", "icon": "map" },
+
+  { "id": "java1", "title": "Hospital Management GUI", "description": "A complete Java Swing application for managing patient records, doctor appointments, and comprehensive billing generation.", "tech": ["Java", "Swing", "MySQL"], "stack": "Java", "status": "completed", "type": "Desktop GUI", "icon": "hospital" },
+  { "id": "java2", "title": "Multiplayer Chess Game", "description": "A peer-to-peer multiplayer chess implementation using low-level Java Sockets for fast network communication over a LAN.", "tech": ["Java", "Sockets", "Concurrency"], "stack": "Java", "status": "completed", "type": "Desktop Game", "icon": "gamepad" },
+  { "id": "java3", "title": "Employee Payroll System", "description": "An enterprise-style payroll calculator handling tax deductions, employee tiers, and automatic PDF payslip generation.", "tech": ["Java", "JavaFX", "iText"], "stack": "Java", "status": "completed", "type": "Desktop GUI", "icon": "file" },
+  { "id": "java4", "title": "E-Commerce Backend API", "description": "Robust RESTful API built with Spring Boot covering secure user authentication, product catalogs, and order processing logs.", "tech": ["Java", "Spring Boot", "JPA"], "stack": "Java", "status": "completed", "type": "Backend Service", "icon": "server" },
+
+  { "id": "web1", "title": "University Forum Portal", "description": "A responsive discussion platform where students can ask questions, share notes, and interact with professors contextually.", "tech": ["React", "Express", "MongoDB"], "stack": "Full Stack", "status": "completed", "type": "Full Stack", "icon": "globe" },
+  { "id": "web2", "title": "Real-time Chat Application", "description": "A modern chat app supporting direct messaging, group rooms, and real-time typing indicators with persistent message history.", "tech": ["Next.js", "Socket.io", "Tailwind"], "stack": "Full Stack", "status": "completed", "type": "Web App", "icon": "message" },
+  { "id": "web3", "title": "Weather Dashboard", "description": "A sleek dashboard fetching 5-day weather forecasts from the OpenWeather API featuring interactive dynamic data charts.", "tech": ["HTML/CSS", "Vanilla JS", "Chart.js"], "stack": "Full Stack", "status": "completed", "type": "Frontend", "icon": "cloud" },
+  { "id": "web4", "title": "Personal Portfolio Template", "description": "Customizable, SEO-optimized personal portfolio template enabling students to flawlessly showcase their resumes and projects.", "tech": ["React", "Framer Motion", "Vite"], "stack": "Full Stack", "status": "completed", "type": "Static Site", "icon": "code" }
+]

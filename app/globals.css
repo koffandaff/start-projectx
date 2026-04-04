@@ -1,26 +1,125 @@
 @import "tailwindcss";
 
+@theme {
+  --font-display: "Clash Display", "Syne", serif;
+  --font-body: "Inter", "DM Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PREMIUM LEAF GREEN & CREAM TOKENS (EDITORIAL STYLE)
+   ══════════════════════════════════════════════════════════════ */
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Backgrounds ─────────────────────────────── */
+  --bg-root: #F0EEE9; /* Natural warm stone cream */
+  --bg-panel: #FAFAF8; /* Slightly lighter for panels */
+  --bg-panel-hover: #FFFFFF;
+
+  /* ── Accents ─────────────────────────────────── */
+  --accent-main: #064E3B; /* Deep Emerald 900 */
+  --accent-light: #10B981; /* Fresh Leaf Green */
+  --accent-subtle: #D1FAE5; /* Emerald 100 */
+  
+  /* ── Text ────────────────────────────────────── */
+  --text-main: #022C22; /* Emerald 950 */
+  --text-muted: #064E3B99; /* Transparent green for neutral text */
+
+  /* ── Editorial Borders ─────────────────────── */
+  --editorial-border: 1px solid rgba(6, 78, 59, 0.1);
+  --editorial-border-heavy: 2px solid rgba(6, 78, 59, 0.9);
+  --editorial-shadow: 0 10px 40px -10px rgba(6, 78, 59, 0.08);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ══════════════════════════════════════════════════════════════
+   Base Styles
+   ══════════════════════════════════════════════════════════════ */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-root);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-root);
+  color: var(--text-main);
+  font-family: var(--font-body), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: var(--accent-light);
+  color: #022C22;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Editorial Utilities
+   ══════════════════════════════════════════════════════════════ */
+
+.editorial-panel {
+  background: var(--bg-panel);
+  border: var(--editorial-border);
+  box-shadow: var(--editorial-shadow);
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  /* Sharp edges for print/magazine look */
+  border-radius: 0px; 
+}
+
+.editorial-panel:hover {
+  background: var(--bg-panel-hover);
+  box-shadow: 0 20px 50px -15px rgba(6, 78, 59, 0.15);
+}
+
+/* A slightly softened version for internal components */
+.editorial-panel-soft {
+  background: var(--bg-panel);
+  border: var(--editorial-border);
+  box-shadow: var(--editorial-shadow);
+  border-radius: 8px; /* Slight structure, not overly rounded */
+  transition: all 0.4s ease;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Typography Adjustments
+   ══════════════════════════════════════════════════════════════ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Keyframe Animations
+   ══════════════════════════════════════════════════════════════ */
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes slide-up-fade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ══════════════════════════════════════════════════════════════
+   Scrollbar
+   ══════════════════════════════════════════════════════════════ */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-root);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-main);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-light);
 }
