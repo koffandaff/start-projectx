@@ -12,7 +12,7 @@ export async function POST(req: Request) {
       email,
       deadline,
       projectType,
-      description: requirements,
+      requirements,
       whatsapp: whatsapp || "",
     });
 

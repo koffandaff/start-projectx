@@ -60,8 +60,8 @@ export async function sendAdminNotification(
             <td style="padding: 10px 0;">${new Date(data.deadline).toDateString()}</td>
           </tr>
           <tr>
-            <td style="padding: 10px 0; color: #64748B; vertical-align: top;"><strong>Description</strong></td>
-            <td style="padding: 10px 0;">${data.description}</td>
+            <td style="padding: 10px 0; color: #64748B; vertical-align: top;"><strong>Requirements</strong></td>
+            <td style="padding: 10px 0;">${data.requirements}</td>
           </tr>
         </table>
       </div>
