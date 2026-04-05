@@ -74,7 +74,7 @@ export default function Contact() {
               <div>
                 <h4 className="text-lg font-black text-[#022C22] mb-1 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>WhatsApp Direct</h4>
                 <p className="text-sm text-[#064E3B]/80 mb-2 font-medium" style={{ fontFamily: "var(--font-body)" }}>Fastest response time.</p>
-                <a href={`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "6356173533"}`} target="_blank" rel="noreferrer" className="text-[#10B981] font-bold hover:text-[#064E3B] transition-colors uppercase tracking-widest text-xs" style={{ fontFamily: "var(--font-mono)" }}>
+                <a href={`https://wa.me/919904270301?text=I%20need%20help%20with%20the%20project`} target="_blank" rel="noreferrer" className="text-[#10B981] font-bold hover:text-[#064E3B] transition-colors uppercase tracking-widest text-xs" style={{ fontFamily: "var(--font-mono)" }}>
                   Initiate Chat →
                 </a>
               </div>
@@ -87,8 +87,8 @@ export default function Contact() {
               <div>
                 <h4 className="text-lg font-black text-[#022C22] mb-1 tracking-tight" style={{ fontFamily: "var(--font-display)" }}>Email Protocol</h4>
                 <p className="text-sm text-[#064E3B]/80 mb-2 font-medium" style={{ fontFamily: "var(--font-body)" }}>For long-form requirements.</p>
-                <a href="mailto:projectx@gmail.com" className="text-[#10B981] font-bold hover:text-[#064E3B] transition-colors uppercase tracking-widest text-xs" style={{ fontFamily: "var(--font-mono)" }}>
-                  projectx@gmail.com →
+                <a href="mailto:unprojectus@gmail.com" className="text-[#10B981] font-bold hover:text-[#064E3B] transition-colors uppercase tracking-widest text-xs" style={{ fontFamily: "var(--font-mono)" }}>
+                  unprojectus@gmail.com →
                 </a>
               </div>
             </div>

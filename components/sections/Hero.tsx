@@ -96,7 +96,7 @@ export default function Hero() {
                 className="w-full sm:w-auto uppercase tracking-widest text-[#064E3B]"
                 onClick={() => {
                   posthog.capture('hero_whatsapp_click');
-                  window.open(`https://wa.me/${process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "6356173533"}`, "_blank");
+                  window.open(`https://wa.me/919904270301?text=I%20need%20help%20with%20the%20project`, "_blank");
                 }}
               >
                 Immediate Inquiry

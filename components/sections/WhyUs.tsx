@@ -32,7 +32,7 @@ export default function WhyUs() {
     <section id="why-us" className="py-24 sm:py-32 relative bg-[var(--bg-root)] border-t-2 border-[#064E3B] overflow-hidden">
       <div className="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl relative z-10">
         <SectionHeading
-          title="Why Choose Project X?"
+          title="Why Choose Un·Project?"
           subtitle="We bridge the gap between struggling with syntax and confidently passing your degree."
           centered
         />

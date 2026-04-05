@@ -16,17 +16,9 @@ export default function Footer() {
           
           {/* Brand Col */}
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-3 select-none mb-6 group cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-              {/* Minimalist X Box */}
-              <div className="w-11 h-11 bg-[#F0EEE9] flex items-center justify-center transition-all duration-300 relative group-hover:bg-[#10B981]">
-                {/* Offset shadow effect */}
-                <div className="absolute inset-0 bg-[#10B981] translate-x-1 translate-y-1 -z-10 transition-transform group-hover:translate-x-1.5 group-hover:translate-y-1.5" />
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#022C22]">
-                  <path d="M4 4L20 20M20 4L4 20" stroke="currentColor" strokeWidth="4" strokeLinecap="square" />
-                </svg>
-              </div>
-              <span className="text-2xl font-black tracking-tighter text-[#F0EEE9] group-hover:text-[#10B981] transition-colors uppercase ml-2" style={{ fontFamily: "var(--font-display)" }}>
-                Project X
+            <div className="flex items-center select-none mb-6 cursor-pointer group" onClick={() => window.scrollTo(0, 0)}>
+              <span className="text-2xl font-black tracking-tight text-[#F0EEE9] group-hover:text-[#10B981] transition-colors uppercase" style={{ fontFamily: "var(--font-display)" }}>
+                Un<span className="text-[#10B981] mx-[2px]" style={{ fontSize: "1.3em", lineHeight: 0, verticalAlign: "middle" }}>·</span>Project
               </span>
             </div>
             <p className="text-[#10B981]/70 max-w-sm mb-8 leading-relaxed font-medium">
@@ -76,7 +68,7 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-[#064E3B] flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[#10B981]/50 text-sm font-medium">
-            © {currentYear} Project X. Built for Academics, Backed by Engineering.
+            © {currentYear} Un·Project. Built for Academics, Backed by Engineering.
           </p>
           <div className="flex items-center gap-2 text-[#10B981]/50 text-sm font-mono tracking-widest uppercase">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>

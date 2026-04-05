@@ -6,19 +6,17 @@ export async function POST(req: Request) {
     const { name, email, deadline, requirements } = await req.json();
 
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: false, // true for 465, false for other ports
+      service: "gmail",
       auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
       },
     });
 
     const mailOptions = {
-      from: `"Project X Intake" <${process.env.SMTP_USER}>`,
-      to: process.env.ADMIN_EMAIL || process.env.SMTP_USER,
-      subject: `New Requirement Intake: ${name}`,
+      from: `"Un·Project Intake" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      subject: `[Un·Project] New Requirement Intake: ${name}`,
       text: `
         Name: ${name}
         Email: ${email}

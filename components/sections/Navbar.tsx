@@ -37,15 +37,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           
           {/* Logo */}
-          <div className="flex items-center gap-3 select-none cursor-pointer group" onClick={() => window.scrollTo(0, 0)}>
-            {/* Minimalist Sharp X Box */}
-            <div className="w-11 h-11 bg-[#064E3B] flex items-center justify-center border-2 border-[#064E3B] transition-all duration-300">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-[#F0EEE9]">
-                <path d="M4 4L20 20M20 4L4 20" stroke="currentColor" strokeWidth="4" strokeLinecap="square" />
-              </svg>
-            </div>
-            <span className="text-2xl font-black tracking-tighter text-[#022C22] transition-colors uppercase ml-2" style={{ fontFamily: "var(--font-display)" }}>
-              Project X
+          <div className="flex items-center select-none cursor-pointer group" onClick={() => window.scrollTo(0, 0)}>
+            <span className="text-2xl font-black tracking-tight text-[#022C22] transition-colors uppercase" style={{ fontFamily: "var(--font-display)" }}>
+              Un<span className="text-[#10B981] mx-[2px]" style={{ fontSize: "1.3em", lineHeight: 0, verticalAlign: "middle" }}>·</span>Project
             </span>
           </div>
 

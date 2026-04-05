@@ -2,12 +2,10 @@ import nodemailer from "nodemailer";
 import type { ContactFormData } from "./validations";
 
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT || 587),
-  secure: false,
+  service: "gmail",
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -33,9 +31,9 @@ export async function sendAdminNotification(
     : "";
 
   await transporter.sendMail({
-    from: `"Project X" <${process.env.SMTP_USER}>`,
-    to: process.env.ADMIN_EMAIL,
-    subject: `[Project X] New Request — ${projectTypeLabels[data.projectType] || data.projectType} | ${data.name}`,
+    from: `"Un·Project" <${process.env.EMAIL_USER}>`,
+    to: process.env.EMAIL_USER,
+    subject: `[Un·Project] New Request — ${projectTypeLabels[data.projectType] || data.projectType} | ${data.name}`,
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
         <h2 style="color: #16A34A; margin-top: 0;">🚀 New Project Request</h2>
@@ -91,14 +89,14 @@ export async function sendStudentAutoReply(
       : `<p style="color:#475569;">We'll WhatsApp or email you within <strong>24 hours</strong> to schedule a quick 5-min call.</p>`;
 
   await transporter.sendMail({
-    from: `"Project X" <${process.env.SMTP_USER}>`,
+    from: `"Un·Project" <${process.env.EMAIL_USER}>`,
     to: data.email,
-    subject: `Got it, ${firstName}! Your Project X request is in 🚀`,
+    subject: `Got it, ${firstName}! Your Un·Project request is in 🚀`,
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
         <h2 style="color: #16A34A; margin-top: 0;">We received your request!</h2>
         <p>Hey ${firstName},</p>
-        <p>Thanks for reaching out to <strong>Project X</strong>.
+        <p>Thanks for reaching out to <strong>Un·Project</strong>.
            We've received your request for a <strong>${(projectTypeLabels[data.projectType] || data.projectType).toUpperCase()}</strong> project
            with a deadline of <strong>${new Date(data.deadline).toDateString()}</strong>.</p>
 
@@ -111,12 +109,12 @@ export async function sendStudentAutoReply(
           <li>Whether you need documentation / PPT alongside the code</li>
         </ul>
 
-        <p style="color: #475569;">Questions? Just reply to this email or WhatsApp us anytime.</p>
-        <p style="color: #94a3b8; font-size: 0.9rem;">— The Project X Team</p>
+        <p style="color: #475569;">Questions? Just reply to this email or WhatsApp us at <a href="https://wa.me/919904270301" style="color:#22C55E;">+91 9904270301</a>.</p>
+        <p style="color: #94a3b8; font-size: 0.9rem;">— The Un·Project Team</p>
 
         <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 20px 0;" />
         <p style="color: #94a3b8; font-size: 0.75rem;">
-          You're receiving this because you submitted a request at projectx.app
+          You're receiving this because you submitted a request at unproject.app
         </p>
       </div>
     `,
