@@ -18,11 +18,25 @@ export const contactSchema = z.object({
   ]),
   deadline: z
     .string()
-    .refine((d) => new Date(d) > new Date(), "Deadline must be in the future"),
-  description: z
+    .refine((d) => {
+      const date = new Date(d);
+      const today = new Date();
+      today.setHours(0, 0, 0, 0); // Allow today's date
+      return date >= today;
+    }, "Deadline must be today or in the future"),
+  requirements: z
     .string()
-    .min(20, "Please describe your project (min 20 chars)")
-    .max(1000),
+    .min(10, "Please describe your project (min 10 chars)")
+    .max(2000),
 });
+
+export function isUrgentDeadline(dateStr: string): boolean {
+  if (!dateStr) return false;
+  const deadline = new Date(dateStr);
+  const now = new Date();
+  const diffInMs = deadline.getTime() - now.getTime();
+  const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
+  return diffInDays >= 0 && diffInDays <= 2;
+}
 
 export type ContactFormData = z.infer<typeof contactSchema>;

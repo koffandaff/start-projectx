@@ -27,7 +27,7 @@ export async function sendAdminNotification(
 ) {
   const waLink = `https://wa.me/91${data.whatsapp}`;
   const meetSection = meetLink && scheduledTime
-    ? `<p><strong>📅 Discovery Call:</strong> ${scheduledTime}<br/><a href="${meetLink}">Join Google Meet →</a></p>`
+    ? `<p><strong>Discovery Call:</strong> ${scheduledTime}<br/><a href="${meetLink}">Join Google Meet →</a></p>`
     : "";
 
   await transporter.sendMail({
@@ -36,7 +36,7 @@ export async function sendAdminNotification(
     subject: `[Un·Project] New Request — ${projectTypeLabels[data.projectType] || data.projectType} | ${data.name}`,
     html: `
       <div style="font-family: sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
-        <h2 style="color: #16A34A; margin-top: 0;">🚀 New Project Request</h2>
+        <h2 style="color: #16A34A; margin-top: 0;">New Project Request</h2>
         ${meetSection}
         <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
           <tr style="border-bottom: 1px solid #e2e8f0;">

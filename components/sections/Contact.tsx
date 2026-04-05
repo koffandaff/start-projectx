@@ -5,30 +5,55 @@ import { motion } from "framer-motion";
 import { Send, CheckCircle2, ShieldCheck, MessageSquare, Mail } from "lucide-react";
 import posthog from "posthog-js";
 import Button from "@/components/ui/Button";
-import Input from "@/components/ui/GlassInput"; // Still file name GlassInput.tsx for safety, default export is Input
+import Input from "@/components/ui/GlassInput";
 import SectionHeading from "@/components/ui/SectionHeading";
+import { contactSchema, isUrgentDeadline } from "@/lib/validations";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isUrgent, setIsUrgent] = useState(false);
+
+  const todayStr = new Date().toISOString().split('T')[0];
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
+    setErrors({});
     
     const formData = new FormData(e.currentTarget);
-    const name = formData.get('name') as string;
-    const email = formData.get('email') as string;
-    const deadline = formData.get('deadline') as string;
-    const requirements = formData.get('requirements') as string;
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      whatsapp: formData.get('whatsapp') as string,
+      deadline: formData.get('deadline') as string,
+      projectType: formData.get('projectType') as string,
+      requirements: formData.get('requirements') as string,
+    };
 
-    posthog.capture('contact_form_submit', { name, email });
+    const validation = contactSchema.safeParse(data);
+    
+    if (!validation.success) {
+      const fieldErrors: Record<string, string> = {};
+      validation.error.issues.forEach((issue) => {
+        const path = issue.path[0];
+        if (path) {
+          fieldErrors[path.toString()] = issue.message;
+        }
+      });
+      setErrors(fieldErrors);
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+    posthog.capture('contact_form_submit', data);
 
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, deadline, requirements }),
+        body: JSON.stringify(data),
       });
 
       if (response.ok) {
@@ -135,20 +160,51 @@ export default function Contact() {
               ) : (
                 <div className="space-y-8">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                    <Input id="name" type="text" label="Full Name" placeholder="John Doe" required />
-                    <Input id="email" type="email" label="Email Address" placeholder="john@example.com" required />
+                    <Input id="name" name="name" type="text" label="Full Name" placeholder="John Doe" required error={errors.name} />
+                    <Input id="email" name="email" type="email" label="Email Address" placeholder="john@example.com" required error={errors.email} />
                   </div>
-                  
-                  <div className="grid grid-cols-1 gap-6">
-                    <Input id="deadline" type="date" label="Hard Deadline" required />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <Input id="whatsapp" name="whatsapp" type="tel" label="WhatsApp Number" placeholder="9876543210" required error={errors.whatsapp} />
+                    <div className="flex flex-col gap-1 w-full">
+                      <Input
+                        id="deadline"
+                        name="deadline"
+                        type="date"
+                        label="Hard Deadline"
+                        required
+                        min={todayStr}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setIsUrgent(isUrgentDeadline(e.target.value))}
+                        error={errors.deadline}
+                      />
+                      {isUrgent && (
+                        <p className="text-[10px] font-bold text-red-600 uppercase tracking-tight animate-pulse ml-1">
+                          Contact through WhatsApp for fast reply in urgency
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-start font-[var(--font-body)]">
+                    <label htmlFor="projectType" className="text-xs sm:text-sm font-bold text-[#064E3B] mb-2 uppercase tracking-widest" style={{ fontFamily: "var(--font-mono)" }}>Project Stack</label>
+                    <select id="projectType" name="projectType" required className="w-full h-14 px-5 bg-[#F0EEE9] border-[2px] border-[#064E3B] outline-none text-[#022C22] font-medium transition-all focus:bg-[#FAFAF8] focus:shadow-[4px_4px_0_#064E3B]">
+                      <option value="fullstack">Full Stack</option>
+                      <option value="aiml">AI / ML</option>
+                      <option value="python">Python</option>
+                      <option value="java">Java</option>
+                      <option value="datascience">Data Science</option>
+                      <option value="cpp">C++</option>
+                      <option value="custom">Custom Stack</option>
+                      <option value="other">Other</option>
+                    </select>
                   </div>
 
                   <Input
                     id="requirements"
+                    name="requirements"
                     label="Detailed Specifications"
                     placeholder="Provide a link to your rubric, or paste your requirements here..."
                     isTextarea
                     required
+                    error={errors.requirements}
                   />
 
                   <div className="flex items-center gap-3 bg-[#064E3B]/5 p-4 border border-[#064E3B]/10 rounded-sm">
